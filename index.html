@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>JavaScript / jQuery</title>
+    
+    <!--    <link rel="icon" type="image/x-icon" href="favicon.ico" />  favicon -->
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade|Open+Sans:400,700" rel="stylesheet"> <!-- fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css"> <!-- font-awesome -->
+    <link rel="stylesheet" text="text/css" href="styles/styles.css"> <!-- style page -->
+     
+    <!--[if lt IE 9]>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+    
+</head>
+<body> 
+    
+    <header>
+        <button class="menu">menu</button>
+        <h1>JAVASCRIPT / JQUERY</h1>
+        <nav class="site-nav-bar">
+            <ul>
+                <li class="slide-out"><a class="slide-btn" href="#">Google Maps <i class="fa fa-chevron-right" aria-hidden="true" style="font-size: 16px; padding-left: 5px;"></i></a>
+                    <ul class="step-menu">
+                        <li><a href="#google-maps-step-01">Step 01</a></li>
+                        <li><a href="#google-maps-step-02">Step 02</a></li>
+                        <li><a href="#google-maps-step-03">Step 03</a></li>
+                    </ul>
+                </li>    
+                <li><a href="#">Tutorial 02</a></li>
+                <li><a href="#">Tutorial 03</a></li>
+            </ul>
+        </nav>   
+    </header> <!-- end header -->
+    
+    <main>
+        
+        <section id="google-maps-step-01" class="step step-01">
+            <article class="show-01 show">
+                <h1>step 01</h1>
+                <h2>Add Google Maps to Your Webpage</h2>
+                <div id="map-01"></div>    
+            </article>  
+            
+            <article class="tell-01 tell">
+                <h1>step 01</h1>
+                <h2>Add Google Maps to Your Webpage</h2>
+                
+                <p>First, create a div element named "map" to hold the Map. Assign a width and height to suite your needs.</p>
+<pre><code class="language-css">#map {
+    width: 1000px;
+    height: 600px;
+}
+</code></pre>
+                
+                <p>Next, define a JavaScript function that creates a map in the div. You'll also need to include a second script to call the Google Maps API. At this point you'll need to sign up for a unique <a href="https://developers.google.com/maps/documentation/embed/">API number supplied by google.</a> Replace 'YOUR_API_KEY' with the number you receive from google.</p>
+<pre><code class="language-css">&lt;script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 49.2827, lng: -123.1207},
+          zoom: 14,
+        });
+      }
+&lt;/script>
+&lt;script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+async defer>&lt;/script>
+</code></pre>
+            </article>
+        </section>
+        
+        <section id="google-maps-step-02" class="step step-02">
+            <article class="show-02 show">
+                <h1>step 02</h1>
+                <h2>Styling Your Google Map</h2>
+                <div id="map-02"></div>
+            </article>  
+            
+            <article class="tell-02 tell">
+                <h1>step 02</h1>
+                <h2>Styling Your Google Map</h2>
+                
+                <p>First, let's examine the styling syntax. Below is a break down of the JavaScript  phrasing.</p>
+<pre><code class="language-css">var stylesArray = [
+  {
+    featureType: '',
+    elementType: '',
+    stylers: [
+      {color: ''},
+      {visibility: ''},
+      // Add any stylers you need.
+    ]
+  },
+  {
+    featureType: '',
+    // Add the stylers you need.
+  }
+]
+</code></pre>
+                <p>Thanks to the Google API, styling is pretty straight forward. Let's put this syntax to work and try changing the colour of the water in our newly embed map. As you can see below, the 'featureType' targets the water area of the map. Within the water area, we can target a specific 'elementType'. In this case we're targetting 'geometry', 'labels.text.fill' and 'labels.text.stroke' and applying a color styler to each. As you can see in the map on the left, the water, and water labels(fill and stroke) have been updated.</p>
+<pre><code class="language-css">styles: [
+            {
+              featureType: 'water',
+              elementType: 'geometry',
+              stylers: [{color: '#17263c'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#515c6d'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.stroke',
+              stylers: [{color: '#17263c'}]
+            }
+        ]
+</code></pre>  
+            </article>
+        </section>
+        
+        <section id="google-maps-step-03" class="step step-03">
+            <article class="show-03 show">
+                <div class="map-box">
+                    <h1>step 03</h1>
+                    <h2>Putting it all together</h2>
+                    <div id="map-03"></div>
+                </div>    
+            </article>  
+            
+            <article class="tell-03 tell">
+                <h1>step 03</h1>
+                <h2>Putting it all together</h2>
+                
+                <p>Alright, let's put it all together and flush out a total re-style. Check out the code below to familiarize yourself with the different 'featureType' and 'elementType' selectors.</p>
+<pre><code class="language-css">&lt;script>
+      function initMap() {
+        // Styles a map in night mode.
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 40.674, lng: -73.945},
+          zoom: 12,
+          styles: [
+            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+            {
+              featureType: 'administrative.locality',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'geometry',
+              stylers: [{color: '#263c3f'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#6b9a76'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry',
+              stylers: [{color: '#38414e'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#212a37'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#9ca5b3'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry',
+              stylers: [{color: '#746855'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#1f2835'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#f3d19c'}]
+            },
+            {
+              featureType: 'transit',
+              elementType: 'geometry',
+              stylers: [{color: '#2f3948'}]
+            },
+            {
+              featureType: 'transit.station',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'geometry',
+              stylers: [{color: '#17263c'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#515c6d'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.stroke',
+              stylers: [{color: '#17263c'}]
+            }
+          ]
+        });
+      }
+    &lt;/script>
+</code></pre>
+            </article>
+        </section>
+        
+    </main> <!-- end main -->
+    
+    <footer></footer> <!-- end footer -->
+    
+<!-- scripts -->
+<script src="scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
+<script src="scripts/prism.js" type="text/javascript"></script>    
+<script src="scripts/nav-effects.js" type="text/javascript"></script>
+<script src="scripts/follow-scroll.js" type="text/javascript"></script>   
+<script src="scripts/tutorial-01-map.js" type="text/javascript"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9VnFUPZ8x7bPVhmox7ZCR58SKQDdkrfI&callback=initMap"
+    async defer></script>
+</body>
+</html>
