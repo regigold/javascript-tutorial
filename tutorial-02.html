@@ -22,7 +22,7 @@
         <h1>JAVASCRIPT / JQUERY</h1>
         <nav class="site-nav-bar">
             <ul>
-                <li><a href="#">Google Maps</a></li>    
+                <li><a href="index.html">Google Maps</a></li>    
                 <li class="slide-out"><a class="slide-btn" href="#">Slide Show<i class="fa fa-chevron-right" aria-hidden="true" style="font-size: 16px; padding-left: 5px;"></i></a>
                     <ul class="step-menu">
                         <li><a href="#google-maps-step-01">Step 01</a></li>
@@ -30,7 +30,7 @@
                         <li><a href="#google-maps-step-03">Step 03</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Tutorial 03</a></li>
+                <li><a href="tutorial-03.html">Tutorial 03</a></li>
             </ul>
         </nav>   
     </header> <!-- end header -->
@@ -40,7 +40,7 @@
         <section class="step step-01">
             <article class="show-01 show">
                 <h1>step 01</h1>
-                <h2>Add Google Maps to Your Webpage</h2>
+                <h2>Grab some photos</h2>
                 <div class="slide-show">
                     <picture>
                         <img sizes="(max-width: 1340px) 100vw, 50vw"
@@ -58,26 +58,41 @@
             
             <article class="tell-01 tell">
                 <h1>step 01</h1>
-                <h2>Add Google Maps to Your Webpage</h2>
+                <h2>Grab some photos</h2>
                 
-                <p>First, create a div element named "map" to hold the Map. Assign a width and height to suite your needs.</p>
-<pre><code class="language-css">
-
+                <p>To begin you'll need a series of images. Size all the images to the same size. We'll eventually be overlapping the images. For smooth transitions between slides it's important that they all have a uniform height and width.</p>
+                <p>Need some images? Check out the following links to use the images from this tutorial:<br><a href="https://unsplash.com/search/desert?photo=eKpO8DlBvo0">image 01</a>
+                <a href="https://unsplash.com/search/desert?photo=ZDNr5nuZABg">image 02</a>
+                <a href="https://unsplash.com/search/desert?photo=VkZuNpXxdIg">image 03</a>
+                <a href="https://unsplash.com/search/desert?photo=eTa53Uf0StE">image 04</a></p>
+                <p>Now that you have your images gathered let's drop them into our HTML. In this tutorials we'll be passing the images into a list.</p>
+<pre><code class="language-css">&lt;div class="slide-show">
+    &lt;ul>
+        &lt;li>
+            &lt;img src="images/wide_desert.jpg" alt="Wide desert photo">
+        &lt;/li>
+        &lt;li>
+            &lt;img src="images/lake.jpg" alt="Red rocks and clear green lake">
+        &lt;/li>
+        &lt;li>
+            &lt;img src="images/rocks.jpg" alt="Canyon rocks">
+        &lt;/li>
+        &lt;li>
+            &lt;img src="images/desert_lake.jpg" alt="Desert lake">
+        &lt;/li>
+    &lt;ul>
+&lt;/div>
 </code></pre>
-                
-                <p>Next, define a JavaScript function that creates a map in the div. You'll also need to include a second script to call the Google Maps API. At this point you'll need to sign up for a unique <a href="https://developers.google.com/maps/documentation/embed/">API number supplied by google.</a> Replace 'YOUR_API_KEY' with the number you receive from google.</p>
-<pre><code class="language-css">
-
-</code></pre>
+    
             </article>
         </section>
         
         <section class="step step-02">
             <article class="show-02 show">
                 <h1>step 02</h1>
-                <h2>Styling Your Google Map</h2>
+                <h2>Applying the style</h2>
                 <div class="slide-show">
-                    <ul class="slider-01">
+                    <ul>
                         <li class="slide">
                             <img sizes="(max-width: 1340px) 100vw, 50vw"
                                 srcset="
@@ -146,32 +161,17 @@
                                 <span class="dot on"></span>
                             </div>
                         </li>
-<!--
-                        <div class="dots">
-                            <span class="on"></span>
-                            <span class="off"></span>
-                            <span class="off"></span>
-                            <span class="off"></span>
-                        </div>
--->
                     </ul>    
                 </div>
             </article>  
             
             <article class="tell-02 tell">
                 <h1>step 02</h1>
-                <h2>Styling Your Google Map</h2>
+                <h2>Applying the style</h2>
                 
-                <p>First, let's examine the styling syntax. Below is a break down of the JavaScript phrasing.</p>
-                <p>First, let's examine the styling syntax. Below is a break down of the JavaScript phrasing.</p>
-                <p>First, let's examine the styling syntax. Below is a break down of the JavaScript phrasing.</p>
-                <p>First, let's examine the styling syntax. Below is a break down of the JavaScript phrasing.</p>
-                <p>First, let's examine the styling syntax. Below is a break down of the JavaScript phrasing.</p>
-                <p>First, let's examine the styling syntax. Below is a break down of the JavaScript phrasing.</p>
-                <p>First, let's examine the styling syntax. Below is a break down of the JavaScript phrasing.</p>
-                <p>First, let's examine the styling syntax. Below is a break down of the JavaScript phrasing.</p>
-                <p>First, let's examine the styling syntax. Below is a break down of the JavaScript phrasing.</p>
-                <p>First, let's examine the styling syntax. Below is a break down of the JavaScript phrasing.</p>
+                <p>Excellent, you've got your slide show all marked up. Next, let's apply some styles to it using CSS</p>
+                
+                <p> Let's start by </p>
 <pre><code class="language-css">
 
 </code></pre>

@@ -155,6 +155,15 @@ main {
     font-family: 'Open Sans', sans-serif;
 }
 
+.tell h1:before {
+    display:block;
+    position:relative;
+    margin-top: -60px;
+    height: 60px;
+    content: " ";
+    visibility:hidden;
+}
+
 .step {
     display: flex;
 }
@@ -163,13 +172,14 @@ main {
     border-top: none;
 }
 
+
 /*
 pre {
     width 60%;
 }
 */
 
-/* - SHOW SECTION STYLES - */
+/* --- SHOW SECTION STYLES --- */
 
 .show {
     display: block;
@@ -177,7 +187,6 @@ pre {
     border-top: 2px solid #e4c69f; /* burlywoods */
     padding: 30px;
     width: 100%;
-/*    height: 100%;*/
     flex: 1;
 }
 
@@ -187,7 +196,7 @@ pre {
     display: none;
 }
 
-/* map tutorial */
+/* TUTORIAL 01 */
 
 #map-01 {   
     width: 100%;
@@ -207,14 +216,38 @@ pre {
     border-bottom: 4px solid rgba(222,184,135,1);
 }
 
-/* slide show tutorial */
+/* TUTORIAL 02 */
 
-tutorial-02-show-03 {
-    min-height: 712px; 
+.tutorial-02-show-03 {
+    padding-bottom: 55.6%;
 }
 
 .slide-show {
     width: 100%;
+}
+
+.slide-show picture img,
+.slide img {
+    border-bottom: 4px solid rgba(222,184,135,1);
+}
+
+.slide-show ul li {
+    margin-bottom: 30px;
+}
+
+.slide-show ul li:last-child {
+    margin-bottom: 0;
+}
+
+.step-02 ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.step-02 .slide {
+    width: 48%;
+    margin-bottom: 10px;
 }
 
 .slider {
@@ -231,14 +264,6 @@ tutorial-02-show-03 {
     bottom: 0px; 
 }
 
-.slider-01 li {
-    margin-bottom: 30px;
-}
-
-.slider-01 li:last-child {
-    margin-bottom: 0;
-}
-
 .dots {
     display: block;
     float: left;
@@ -250,8 +275,8 @@ tutorial-02-show-03 {
 
 .dot {
     display: inline-block;
-    height: 13px;
-    width: 13px;
+    height: 11px;
+    width: 11px;
     margin: 0 2px;
     border-radius: 50%;
     background-color: transparent;
@@ -263,7 +288,74 @@ tutorial-02-show-03 {
     background-color: white;
 }
 
+/* TUTORIAL 03 */
 
+.tutorial-03-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.tutorial-03-show {
+    flex: 1;
+    display: block;
+    background-color: cadetblue;
+    width: 100%;
+    min-height: 100%; 
+    position: relative;
+    overflow: hidden;
+	cursor: pointer;
+}
+
+.tutorial-03-show h1 {
+    text-align: center;
+    font-family: 'Bungee', cursive;
+    letter-spacing: 3px;
+    font-size: 20px;
+    color: burlywood; /* burlywoods */
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.tutorial-03-show h2 {
+    width: 90%;
+    text-align: center;
+    line-height: 28px;
+    letter-spacing: 2px;
+    font-size: 18px;
+    color: burlywood; /* burlywoods */
+    text-transform: uppercase; 
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.tutorial-03-tell {
+    flex: 1;
+}
+
+#cactus {
+    position: relative;
+    width:40px;
+    height:40px;
+    left: 50%;
+	top: 200px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px rgba(0,0,0,.5);
+    background-color: crimson;
+    transition: left .5s cubic-bezier(.59,-0.8,.45,1.69), 
+                top .5s cubic-bezier(.59,-0.8,.45,1.69);
+}
+
+.cactus-transform {
+    transform: translate(-50%, 0);
+}
+
+.fa-chevron-down {
+    display: none;
+}
 
 /* - TELL SECTION STYLES - */
 
@@ -319,71 +411,7 @@ tutorial-02-show-03 {
 }
 
 
-/* -- TUTORIAL 03 STYLES -- */
 
-.tutorial-03-wrapper {
-    display: flex;
-    flex-direction: row;
-}
-
-.tutorial-03-show {
-    flex: 1;
-    display: block;
-    background-color: cadetblue;
-    width: 100%;
-    min-height: 100%; 
-    position: relative;
-    overflow: hidden;
-	cursor: pointer;
-}
-
-.tutorial-03-show h1 {
-    text-align: center;
-    font-family: 'Bungee', cursive;
-    letter-spacing: 3px;
-    font-size: 20px;
-    color: burlywood; /* burlywoods */
-    position: absolute;
-    top: 30px;
-    left: 50%;
-    transform: translate(-50%, 0);
-}
-
-.tutorial-03-show h2 {
-    width: 90%;
-    text-align: center;
-    line-height: 28px;
-    letter-spacing: 2px;
-    font-size: 18px;
-    color: burlywood; /* burlywoods */
-    text-transform: uppercase; 
-    position: absolute;
-    top: 70px;
-    left: 50%;
-    transform: translate(-50%, 0);
-}
-
-.tutorial-03-tell {
-    flex: 1;
-}
-
-#cactus {
-    position: relative;
-    width:40px;
-    height:40px;
-	left: 50%;
-	top: 200px;;
-    transform: translate(-50%, 0);
-    border-radius: 50%;
-    box-shadow: 2px 2px 5px rgba(0,0,0,.5);
-    background-color: crimson;
-    transition: left .5s cubic-bezier(.42,-0.3,.78,1.25), 
-                top .5s cubic-bezier(.42,-0.3,.78,1.25);
-}
-
-.fa-chevron-down {
-    display: none;
-}
 
 /* --- END GENERAL STYLES --- */
 
@@ -394,6 +422,15 @@ tutorial-02-show-03 {
 
     .tell {
         flex: 2;
+    }
+    
+    .step-02 ul {
+    display: block;
+    }
+
+.step-02 .slide {
+    width: 100%;
+    margin-bottom: 30px;
     }
 }    
 

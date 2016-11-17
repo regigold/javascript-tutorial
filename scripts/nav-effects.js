@@ -1,6 +1,8 @@
 //Javascript Document
 
 
+//slide out step menu
+
 $( document ).ready(function() {
     
     var $slideBtn = $('.slide-btn');
@@ -35,6 +37,26 @@ $( document ).ready(function() {
 
           }
     });
+
+//smooth scroll to section
+
+$(".step-01").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#google-maps-step-01").offset().top
+    }, 1000);
+});
+
+$(".step-02").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#google-maps-step-02").offset().top
+    }, 1000);
+});
+
+$(".step-03").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#google-maps-step-03").offset().top
+    }, 1000);
+});
 
 
 
