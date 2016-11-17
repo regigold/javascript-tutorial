@@ -66,22 +66,20 @@
                 <a href="https://unsplash.com/search/desert?photo=VkZuNpXxdIg">image 03</a>
                 <a href="https://unsplash.com/search/desert?photo=eTa53Uf0StE">image 04</a></p>
                 <p>Now that you have your images gathered let's drop them into our HTML. In this tutorials we'll be passing the images into a list.</p>
-<pre><code class="language-css">&lt;div class="slide-show">
-    &lt;ul>
-        &lt;li>
-            &lt;img src="images/wide_desert.jpg" alt="Wide desert photo">
-        &lt;/li>
-        &lt;li>
-            &lt;img src="images/lake.jpg" alt="Red rocks and clear green lake">
-        &lt;/li>
-        &lt;li>
-            &lt;img src="images/rocks.jpg" alt="Canyon rocks">
-        &lt;/li>
-        &lt;li>
-            &lt;img src="images/desert_lake.jpg" alt="Desert lake">
-        &lt;/li>
-    &lt;ul>
-&lt;/div>
+<pre><code class="language-css">&lt;ul class="slide-show">
+    &lt;li>
+        &lt;img src="images/wide_desert.jpg" alt="Wide desert photo">
+    &lt;/li>
+    &lt;li>
+        &lt;img src="images/lake.jpg" alt="Red rocks and clear green lake">
+    &lt;/li>
+    &lt;li>
+        &lt;img src="images/rocks.jpg" alt="Canyon rocks">
+    &lt;/li>
+    &lt;li>
+        &lt;img src="images/desert_lake.jpg" alt="Desert lake">
+    &lt;/li>
+&lt;/ul>
 </code></pre>
     
             </article>
@@ -90,7 +88,7 @@
         <section class="step step-02">
             <article class="show-02 show">
                 <h1>step 02</h1>
-                <h2>Applying the style</h2>
+                <h2>Applying some style</h2>
                 <div class="slide-show">
                     <ul>
                         <li class="slide">
@@ -167,18 +165,98 @@
             
             <article class="tell-02 tell">
                 <h1>step 02</h1>
-                <h2>Applying the style</h2>
+                <h2>Applying some style</h2>
+                
+                <p>Good going, next let's make some of the fancy dots that so many slideshows seem to have. This will provide the slide show progress tracker of sorts for the user.</p>
+                
+                <p>We'll be coding these dots. So let's begin by updating our HTML.</p>
+                
+                <p>The 'dots' are being created using a series of spans. Notice that the div and the spans have been nested with in the &lt;li> elments. This will contain the dots and the iamges together. Assign a class of 'dots' to the parent &lt;div> and a class of 'dot' to each span. Add a secondary class of 'on' to the indicate the active slide.</p>
+<pre><code class="language-css">&lt;ul class="slide-show">
+    &lt;li>
+        &lt;img src="images/wide_desert.jpg" alt="Wide desert photo">
+        &lt;div class="dots">
+            &lt;span class="dot on">&lt;/span>
+            &lt;span class="dot">&lt;/span>
+            &lt;span class="dot">&lt;/span>
+            &lt;span class="dot">&lt;/span>
+        &lt;/div>
+    &lt;/li>
+    &lt;li>
+        &lt;img src="images/lake.jpg" alt="Red rocks and clear green lake">
+        &lt;div class="dots">
+            &lt;span class="dot">&lt;/span>
+            &lt;span class="dot on">&lt;/span>
+            &lt;span class="dot">&lt;/span>
+            &lt;span class="dot">&lt;/span>
+        &lt;/div>
+    &lt;/li>
+    &lt;li>
+        &lt;img src="images/rocks.jpg" alt="Canyon rocks">
+        &lt;div class="dots">
+            &lt;span class="dot">&lt;/span>
+            &lt;span class="dot">&lt;/span>
+            &lt;span class="dot on">&lt;/span>
+            &lt;span class="dot">&lt;/span>
+        &lt;/div>
+    &lt;/li>
+    &lt;li>
+        &lt;img src="images/desert_lake.jpg" alt="Desert lake">
+        &lt;div class="dots">
+            &lt;span class="dot">&lt;/span>
+            &lt;span class="dot">&lt;/span>
+            &lt;span class="dot">&lt;/span>
+            &lt;span class="dot on">&lt;/span>
+        &lt;/div>
+    &lt;/li>
+&lt;/ul>
+</code></pre>
                 
                 <p>Excellent, you've got your slide show all marked up. Next, let's apply some styles to it using CSS</p>
                 
-                <p> Let's start by </p>
-<pre><code class="language-css">
+                <p>Let's start with the &lt;ul> tag. The main take away here is to assign a relative position for the images to live in. Use the width and hieght properties to create the desired size and ratio of your slide show.</p>
+                
+                <p> Now add in the &lt;li> tag. Use 'position: absolute'. Now all your list elements will be sitting on top of each other.</p>
+                
+<pre><code class="language-css">.slide-show { 
+    position: relative; 
+    margin: 50px auto; 
+    width: 240px; 
+    height: 240px; 
+    padding: 10px; 
+}
 
+li {
+    position: absolute; 
+}
 </code></pre>
-                <p>Thanks to the Google API, styling is pretty straight forward. p>
-<pre><code class="language-css">
+                
+                <p>Great, lastly we'll just need to style up those dots and we'll be good to go.</p>
+                <p>You can use 'transform: translate(0, -40px);' to overlap the dots onto the image.</p>
+<pre><code class="language-css">.dots {
+    display: block;
+    float: left;
+    text-align: center;
+    width: 100%;
+    height: 20px;
+    transform: translate(0, -40px);
+}
 
-</code></pre>  
+.dot {
+    display: inline-block;
+    height: 11px;
+    width: 11px;
+    margin: 0 2px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid white;
+}
+
+.on {    
+    border: 2px solid white;
+    background-color: white;
+}
+</code></pre>
             </article>
         </section>
         
@@ -265,17 +343,28 @@
                 <h1>step 03</h1>
                 <h2>Putting it all together</h2>
                 
-                <p>Alright, let's put it all together and flush out a total re-style. Check out the code below to familiarize yourself with the different 'featureType' and 'elementType' selectors.</p>
-                <p>Alright, let's put it all together and flush out a total re-style. Check out the code below to familiarize yourself with the different 'featureType' and 'elementType' selectors.</p>
-                <p>Alright, let's put it all together and flush out a total re-style. Check out the code below to familiarize yourself with the different 'featureType' and 'elementType' selectors.</p>
-                <p>Alright, let's put it all together and flush out a total re-style. Check out the code below to familiarize yourself with the different 'featureType' and 'elementType' selectors.</p>
-                <p>Alright, let's put it all together and flush out a total re-style. Check out the code below to familiarize yourself with the different 'featureType' and 'elementType' selectors.</p>
-                <p>Alright, let's put it all together and flush out a total re-style. Check out the code below to familiarize yourself with the different 'featureType' and 'elementType' selectors.</p>
-                <p>Alright, let's put it all together and flush out a total re-style. Check out the code below to familiarize yourself with the different 'featureType' and 'elementType' selectors.</p>
-                <p>Alright, let's put it all together and flush out a total re-style. Check out the code below to familiarize yourself with the different 'featureType' and 'elementType' selectors.</p>
-<pre><code class="language-css">
+                <p>Alrighty, now that we've got our slide show marked up and styled we'll add functionality to it using a bit of jQuery. Our goal will be to create an automated slide show which plays on a loop. Each slide will fade into the next.</p>
+        
+<pre><code class="language-css">$(".slideshow > li:gt(0)").hide();
+
+setInterval(function() { 
+  $('.slide-show > li:first')
+    .fadeOut(1000)
+    .next()
+    .fadeIn(1000)
+    .end()
+    .appendTo('.slide-show');
+},  3000);
 
 </code></pre>
+                
+                <p>Let's break down this code piece by piece.</p>
+                <p>We're using the following line to hide all the image accept the first one. By default the image index begins at '0.' The line tells the browser to hide all list elements <a href="http://www.w3schools.com/jquery/sel_gt.asp">greater than</a> 0.</p>
+                
+<pre><code class="language-css">$(".slideshow > li:gt(0)").hide();</code></pre>
+                
+                <p>Next, we're using a <a href="http://www.w3schools.com/jsref/met_win_setinterval.asp">setIterval</a> function too loop our slide show. The function begins by selecting the first list element, picture number 1. This image fades out and then fades in the the next image. The loop ends with a reset by using an .appendTo action.</p>
+            
             </article>
         </section>
         
