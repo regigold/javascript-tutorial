@@ -24,11 +24,11 @@
             <ul>
                 <li><a href="index.html">Google Maps</a></li>    
                 <li><a href="tutorial-02.html">Slide Show</a></li>
-                <li class="slide-out"><a class="slide-btn" href="#">Tutorial 03<i class="fa fa-chevron-right" aria-hidden="true" style="font-size: 16px; padding-left: 5px;"></i></a>
+                <li class="slide-out"><a class="slide-btn" href="#">Snap to click<i class="fa fa-chevron-right" aria-hidden="true" style="font-size: 16px; padding-left: 5px;"></i></a>
                     <ul class="step-menu">
-                        <li><a href="#">Step 01</a></li>
-                        <li><a href="#">Step 02</a></li>
-                        <li><a href="#">Step 03</a></li>
+                        <li><a class="scroll-step-01" href="#scroll-step-01">Step 01</a></li>
+                        <li><a class="scroll-step-02" href="#scroll-step-02">Step 02</a></li>
+                        <li><a class="scroll-step-03" href="#scroll-step-03">Step 03</a></li>
                     </ul>
                 </li>
             </ul>
@@ -39,52 +39,90 @@
         
         <section class="tutorial-03-show" id="click-surface">
                 <h1>DEMO</h1>
-                <h2>click anywhere in the green box to move the cactus.</h2>
+                <h2>click anywhere in the green box to move the SUN.</h2>
                 
-                <div id="cactus" class="cactus-transform"></div>
+                <div id="sun" class="sun-transform"></div>
+                <div class="land-scape">
+                    <img src="images/cactus-01.svg" alt="Desert Landscape">
+                </div>
                 
                 <i class="fa fa-chevron-down" aria-hidden="true"></i>
         </section>    
             
             <section class="tutorial-03-tell">
-            <article class="tell-01 tell">
+            <article class="tell-01 tell" id="scroll-step-01">
                 <h1>step 01</h1>
-                <h2>Add Google Maps to Your Webpage</h2>
-                <p>First, create a div element named "map" to hold the Map. Assign a width and height to suite your needs.</p>
-<pre><code class="language-css">
-
+                <h2>Creating the Sun</h2>
+                <p>Let's begin with adding the HTML.</p>
+                <p>First, you'll need to create two divs, a parent and child. Assign a class or an id to both divs.</p>
+<pre><code class="language-css">&lt;div id="background">
+    &lt;div id="cirlce">&lt;/div>
+&lt;/div>
 </code></pre>
+                <p>This tutorial will deal with animating a circle, but you could easily insert an image into the child div if you want.</p>
                 
-                <p>Next, define a JavaScript function that creates a map in the div. You'll also need to include a second script to call the Google Maps API. At this point you'll need to sign up for a unique <a href="https://developers.google.com/maps/documentation/embed/">API number supplied by google.</a> Replace 'YOUR_API_KEY' with the number you receive from google.</p>
-<pre><code class="language-css">
-
-</code></pre>
             </article> <!-- tell-01  end -->
          
-            <article class="tell-02 tell">
+            <article class="tell-02 tell" id="scroll-step-02">
                 <h1>step 02</h1>
-                <h2>Styling Your Google Map</h2>
+                <h2>Style it!</h2>
                 
-                <p>First, let's examine the styling syntax. Below is a break down of the JavaScript phrasing.</p>
-                <p>First, let's examine the styling syntax. Below is a break down of the JavaScript phrasing.</p>
-<pre><code class="language-css">
-
+                <p>Next, let's get our CSS going.</p>
+                <p>First, we'll style the parent div, or the 'background'. Set the width and height to your desired size. Add a cursor property to indicate that your parent div is 'click-able'</p>
+<pre><code class="language-css">#background {
+    position: relative;
+	width: 500px;
+	height: 300px;
+	overflow: hidden;
+	background-color: burlywood;
+	cursor: pointer;
+}
 </code></pre>
-                <p>Thanks to the Google API, styling is pretty straight forward. p>
-<pre><code class="language-css">
-
+                <p>Next up, is the the child div. Let's style up our 'circle.'<p>
+                <p>In this case I've shaped the circle using 'border-radius'. We've also positioned the cirlce relatively, and added a left: -50% and a transform: translate (-50%, 0); to center the circle horizontally. <p>
+<pre><code class="language-css">#cirlce { 
+    position: relative;
+    left: 50%;
+	top: 175px;
+    transform: translate (-50%, 0);
+    width:60px;
+    height:60px;
+    background-color: cadetblue;
+    border: 4px solid burlywood;
+    transition: left .5s cubic-bezier(.59,-0.8,.45,1.69), 
+                top .5s cubic-bezier(.59,-0.8,.45,1.69);
+}
 </code></pre>  
             </article> <!-- tell-02 end -->
                 
-            <article class="tell-03 tell">
+            <article class="tell-03 tell" id="scroll-step-03">
                 <h1>step 03</h1>
-                <h2>Putting it all together</h2>
+                <h2>Adding the magic</h2>
                 
+                <p>Next step, add the javaScript.</p>
                 <p>Alright, let's put it all together and flush out a total re-style. Check out the code below to familiarize yourself with the different 'featureType' and 'elementType' selectors.</p>
-                <p>Alright, let's put it all together and flush out a total re-style. Check out the code below to familiarize yourself with the different 'featureType' and 'elementType' selectors.</p>
-<pre><code class="language-css">
+<pre><code class="language-css">var circle = document.querySelector("#cirlce");
+var background = document.querySelector("#background");
 
+background.addEventListener("click", function(event) {
+	var xPosition = event.clientX - background.getBoundingClientRect().left - (circle.clientWidth / 2);
+	var yPosition = event.clientY - background.getBoundingClientRect().top - (circle.clientHeight / 2);
+	
+    // in case of a wide border, the boarder-width needs to be considered in the formula above
+	circle.style.left = xPosition + "px";
+	circle.style.top = yPosition + "px";
+	}
+);
 </code></pre>
+            
+                <p>As you can see, we've passed our id's into two corresponding variables with the same name.</p>
+                <p>Next, we add an eventlistener which triggers a function when the 'background' is clicked.</p>
+                <p>With in the function two variables are declared, and X and Y position. These variables contain an equation. Let's break it down.</p>
+                <p><span>event.clientX</span> - get the X coordinates of the event (the click)</p>
+                <p><span>background.getBoundingClientRect().left</span> - return the width of the 'background' and its position relative to the viewport.</p>
+                <p><span>circle.clientWidth / 2</span> - divide the width of the circle in half to find it's  center along the x-axis</p>
+                <p><span>circle.style.left = xPosition + "px";</span> - pass the coordinates of 'xPosition' into cirlce and update the 'left' position of the element.</p>
+                
             </article> <!-- tell-03 end -->
         </section>
         
@@ -94,7 +132,8 @@
     
 <!-- scripts -->
 <script src="scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
-<script src="scripts/prism.js" type="text/javascript"></script>    
+<script src="scripts/prism.js" type="text/javascript"></script>
+<script src="scripts/follow-scroll.js" type="text/javascript"></script>  
 <script src="scripts/nav-effects.js" type="text/javascript"></script>
 <script src="scripts/tutorial-03-follow-click.js" type="text/javascript"></script>
 </body>

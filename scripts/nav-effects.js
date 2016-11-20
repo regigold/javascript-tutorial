@@ -40,21 +40,21 @@ $( document ).ready(function() {
 
 //smooth scroll to section
 
-$(".step-01").click(function() {
+$(".scroll-step-01").click(function() {
     $('html, body').animate({
-        scrollTop: $("#google-maps-step-01").offset().top
+        scrollTop: $("#scroll-step-01").offset().top
     }, 1000);
 });
 
-$(".step-02").click(function() {
+$(".scroll-step-02").click(function() {
     $('html, body').animate({
-        scrollTop: $("#google-maps-step-02").offset().top
+        scrollTop: $("#scroll-step-02").offset().top
     }, 1000);
 });
 
-$(".step-03").click(function() {
+$(".scroll-step-03").click(function() {
     $('html, body').animate({
-        scrollTop: $("#google-maps-step-03").offset().top
+        scrollTop: $("#scroll-step-03").offset().top
     }, 1000);
 });
 

@@ -25,12 +25,12 @@
                 <li><a href="index.html">Google Maps</a></li>    
                 <li class="slide-out"><a class="slide-btn" href="#">Slide Show<i class="fa fa-chevron-right" aria-hidden="true" style="font-size: 16px; padding-left: 5px;"></i></a>
                     <ul class="step-menu">
-                        <li><a href="#google-maps-step-01">Step 01</a></li>
-                        <li><a href="#google-maps-step-02">Step 02</a></li>
-                        <li><a href="#google-maps-step-03">Step 03</a></li>
+                        <li><a class="scroll-step-01" href="#scroll-step-01">Step 01</a></li>
+                        <li><a class="scroll-step-02" href="#scroll-step-02">Step 02</a></li>
+                        <li><a class="scroll-step-03" href="#scroll-step-03">Step 03</a></li>
                     </ul>
                 </li>
-                <li><a href="tutorial-03.html">Tutorial 03</a></li>
+                <li><a href="tutorial-03.html">Snap to click</a></li>
             </ul>
         </nav>   
     </header> <!-- end header -->
@@ -57,7 +57,7 @@
             </article>  
             
             <article class="tell-01 tell">
-                <h1>step 01</h1>
+                <h1><span id="scroll-step-01">&nbsp;</span>step 01</h1>
                 <h2>Grab some photos</h2>
                 
                 <p>To begin you'll need a series of images. Size all the images to the same size. We'll eventually be overlapping the images. For smooth transitions between slides it's important that they all have a uniform height and width.</p>
@@ -164,7 +164,7 @@
             </article>  
             
             <article class="tell-02 tell">
-                <h1>step 02</h1>
+                <h1><span id="scroll-step-02">&nbsp;</span>step 02</h1>
                 <h2>Applying some style</h2>
                 
                 <p>Good going, next let's make some of the fancy dots that so many slideshows seem to have. This will provide the slide show progress tracker of sorts for the user.</p>
@@ -334,19 +334,17 @@ li {
                                 <span class="dot on"></span>
                             </div>
                         </li>
-                        <div clear="clear"></div>
                     </ul>    
                 </div>  
             </article>  
             
             <article class="tell-03 tell">
-                <h1>step 03</h1>
+                <h1><span id="scroll-step-03">&nbsp;</span>step 03</h1>
                 <h2>Putting it all together</h2>
                 
                 <p>Alrighty, now that we've got our slide show marked up and styled we'll add functionality to it using a bit of jQuery. Our goal will be to create an automated slide show which plays on a loop. Each slide will fade into the next.</p>
         
 <pre><code class="language-css">$(".slideshow > li:gt(0)").hide();
-
 setInterval(function() { 
   $('.slide-show > li:first')
     .fadeOut(1000)
