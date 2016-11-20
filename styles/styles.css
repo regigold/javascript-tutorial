@@ -173,13 +173,6 @@ main {
     border-top: none;
 }
 
-
-/*
-pre {
-    width 60%;
-}
-*/
-
 /* --- SHOW SECTION STYLES --- */
 
 .show {
@@ -190,7 +183,6 @@ pre {
     width: 100%;
     flex: 1;
 }
-
 
 .show h1,
 .show h2 {
@@ -236,15 +228,18 @@ pre {
     margin-bottom: 0;
 }
 
+/*
 .step-02 ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
+*/
 
 .step-02 .slide {
-    width: 48%;
-    margin-bottom: 10px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 10px;    
 }
 
 .slider {
@@ -255,12 +250,6 @@ pre {
 
 .slider li {
     position: absolute; 
-/*
-    top: 0px; 
-    left: 0px; 
-    right: 0px; 
-    bottom: 0px; 
-*/
 }
 
 .dots {
@@ -335,21 +324,24 @@ pre {
     flex: 1;
 }
 
-#cactus {
+#sun {
     position: relative;
-    width:40px;
-    height:40px;
+    width:60px;
+    height:60px;
     left: 50%;
 	top: 200px;
     border-radius: 50%;
-    box-shadow: 2px 2px 5px rgba(0,0,0,.5);
-    background-color: crimson;
+    border: 4px solid burlywood;
     transition: left .5s cubic-bezier(.59,-0.8,.45,1.69), 
                 top .5s cubic-bezier(.59,-0.8,.45,1.69);
 }
 
-.cactus-transform {
+.sun-transform {
     transform: translate(-50%, 0);
+}
+
+.land-scape {
+    transform: translate(0, 200px);
 }
 
 .fa-chevron-down {
@@ -409,7 +401,7 @@ pre {
 .tell a:hover {
     background-color: rgba(95,158,160,.2);
 }
-}
+
 
 /* --- END GENERAL STYLES --- */
 
@@ -423,20 +415,93 @@ pre {
     }
     
     .step-02 ul {
-    display: block;
+        display: block;
     }
 
-.step-02 .slide {
-    width: 100%;
-    margin-bottom: 30px;
+    .step-02 .slide {
+        width: 100%;
+        margin-bottom: 30px;
     }
-}    
+    
+    #sun {
+        width:50px;
+        height:50px;
+        border: 2px solid burlywood;
+    } 
+}
+
+@media only screen and (max-width: 1400px) {
+    
+    .tutorial-03-show {
+        height: calc(100vh - 100px);
+    }
+
+    .tutorial-03-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .tell {
+        display: block;
+    }
+    
+    .tutorial-03-tell > .tell h1 {
+        display: inline-block;
+        
+    }
+    
+    .tutorial-03-tell > .tell h2 {
+        display: block;
+        margin-bottom: 40px;
+    }
+    
+    #sun {
+        width:60px;
+        height:60px;
+        border: 4px solid burlywood;
+    }
+
+    .land-scape {
+        transform: translate(0, 175px);
+        margin: 0 auto;
+        width: 75%;
+    }
+  
+    .fa-chevron-down {
+        display: block;
+        color: burlywood;
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        font-size: 20px;
+        animation: scroll-down .7s alternate ease-in-out infinite;
+    }
+    
+    @keyframes scroll-down {
+    100% { bottom: 28px;}  
+    }
+    
+}
 
 @media only screen and (max-width: 1340px) {
     
     .tutorial-02-show-03 {
-    padding-bottom: 55.6%;
+        padding-bottom: 55.6%;
     }
+    
+    .slide-show ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .step-02 .slide {
+        width: 47%;
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+    
     
     /* HEADER STYLES */
     
@@ -573,47 +638,6 @@ pre {
     }   
 }
     
-@media only screen and (max-width: 900px) {
-    
-    .tutorial-03-show {
-        height: calc(100vh - 100px);
-    }
-
-    .tutorial-03-wrapper {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .tell {
-        display: block;
-    }
-    
-    .tutorial-03-tell > .tell h1 {
-        display: inline-block;
-        
-    }
-    
-    .tutorial-03-tell > .tell h2 {
-        display: block;
-        margin-bottom: 40px;
-    }
-  
-     .fa-chevron-down {
-        display: block;
-        color: burlywood;
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translate(-50%, 0);
-        font-size: 20px;
-        animation: scroll-down .7s alternate ease-in-out infinite;
-    }
-    
-    @keyframes scroll-down {
-    100% { bottom: 28px;}  
-}
-    
-}
     
 @media only screen and (max-width: 700px) {
 
